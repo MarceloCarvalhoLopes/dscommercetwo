@@ -20,7 +20,7 @@ public class ProductService {
     @Transactional(readOnly = true)
     public ProductDto findById (Long id){
         Product product = productRepository.findById(id).get();
-        return  new ProductDto(product);
+        return new ProductDto(product);
 
 //        Optional<Product> result = productRepository.findById(id);
 //        Product product = result.get();
@@ -33,6 +33,21 @@ public class ProductService {
     public Page<ProductDto> findAll (Pageable pageable){
         Page<Product> result = productRepository.findAll(pageable);
         return result.map(ProductDto::new);
+    }
+
+
+    @Transactional
+    public ProductDto insert (ProductDto dto){
+
+        Product product = new Product();
+        product.setName(dto.getName());
+        product.setDescription(dto.getDescription());
+        product.setPrice(dto.getPrice());
+        product.setImgUrl(dto.getImgUrl());
+
+        product = productRepository.save(product);
+
+        return new ProductDto(product);
     }
 
 
