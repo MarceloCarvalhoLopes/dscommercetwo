@@ -1,8 +1,6 @@
-package com.devsuperior.dscommerce.controller;
+package com.devsuperior.dscommerce.controllers;
 
-import com.devsuperior.dscommerce.controller.repositories.ProductRepository;
 import com.devsuperior.dscommerce.dto.ProductDto;
-import com.devsuperior.dscommerce.entities.Product;
 import com.devsuperior.dscommerce.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/products")
